@@ -88,6 +88,12 @@ public class XMLReader {
 				//notification setting
 				sc.setNotificationReceiver(node.getChildText("notificationReceiver"));
 				
+				//retry attempts
+				sc.setNumberOfRetry(Integer.valueOf(node.getChildText("numberOfRetry")));
+				
+				//number of archieve days
+				sc.setNumberOfArchieveDays(Integer.valueOf(node.getChildText("DataStoreArchiveLimitInDays")));
+				
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี
 		}

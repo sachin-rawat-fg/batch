@@ -4,6 +4,8 @@
 <SAPDataFile>E:/FTPROOT/FTPOSCDEV/Customer</SAPDataFile>
 <LogStore>E:/BatchIntegration/FileStore/LogStore</LogStore>
 <DataStore>E:/BatchIntegration/FileStore/DataStore</DataStore>
+<DataStoreArchiveLimitInDays>90</DataStoreArchiveLimitInDays>
+<numberOfRetry>4</numberOfRetry>
 <MappingFile>./files/mapping.csv</MappingFile>
 <LoginId>kajal@suvitech.com</LoginId>
 <Password>Welcome@1</Password>
@@ -14,5 +16,6 @@
 <SMTPPort>465</SMTPPort>
 <SMTPUserName>freshgravityapi@gmail.com</SMTPUserName>
 <SMTPPassword>freshgravityds</SMTPPassword>
+<notificationReceiver>abhishek.vijayvargia@freshgravity.com</notificationReceiver>
 </Settings>
 </OSC>

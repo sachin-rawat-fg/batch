@@ -142,7 +142,7 @@ public class Mailer {
 			    String filename = "./files/settings.xml";//change accordingly  
 			    DataSource source = new FileDataSource(filename);  
 			    messageBodyPart2.setDataHandler(new DataHandler(source));  
-			    messageBodyPart2.setFileName(filename);  
+			    messageBodyPart2.setFileName(new File(filename).getName());  
 			    
 			    String filename2 = "./files/mapping.csv";//change accordingly  
 			    DataSource source2 = new FileDataSource(filename2);  

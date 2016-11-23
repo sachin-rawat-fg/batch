@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import configuration.Settings;
 import input.CSVReader;
+import input.FolderOperations;
 import input.XMLReader;
 
 public class AppStart {
@@ -40,8 +41,8 @@ public class AppStart {
 		Mailer mm = new Mailer();
 		mm.sendMail("abhishek.vijayvargia@freshgravity.com", "notification test", "test");
 		int numberOfFields = hs.size();
-		
-		
+		FolderOperations fold = new FolderOperations();
+		fold.fileMover("", "", 2);
 	}
 
 }

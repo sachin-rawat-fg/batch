@@ -16,6 +16,8 @@ public class Settings {
 	private String SMTP_Username="";
 	private String SMTP_Password="";
 	private String NotificationReceiver="";
+	private int NumberOfRetry=0;
+	private int numberOfDaysArchive=0; 
 	
 	private static Settings obj = new Settings();
 	private Settings(){}
@@ -127,6 +129,14 @@ public class Settings {
 	{
 		return SMTP_Password;
 	}
+	public void setNumberOfRetry(int numberOfRetry)
+	{
+		NumberOfRetry = numberOfRetry;
+	}
+	public int getNumberOfRetry()
+	{
+		return NumberOfRetry;
+	}
 	public void setNotificationReceiver(String reciverList)
 	{
 		NotificationReceiver = reciverList;
@@ -134,6 +144,14 @@ public class Settings {
 	public String getNotificationReceiver()
 	{
 		return NotificationReceiver;
+	}
+	public void setNumberOfArchieveDays(int days)
+	{
+		numberOfDaysArchive = days;
+	}
+	public int getsetNumberOfArchieveDays()
+	{
+		return numberOfDaysArchive;
 	}
 	
 	

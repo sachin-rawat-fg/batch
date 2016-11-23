@@ -8,10 +8,11 @@ import javafx.util.Pair;
 
 public class QueryInitiator {
 
-	public int[][] queryInitiator(Pair<String,String> infoPairs[][],HashMap<String, Pair> mapper)
+	public RESTResponse[][] queryInitiator(Pair<String,String> infoPairs[][],HashMap<String, Pair> mapper)
 	{
 		int numberOfRecords = infoPairs.length;
 		int status[][] = new int[numberOfRecords][3];
+		RESTResponse restResponseAccount[][] = new RESTResponse[numberOfRecords][3];
 		if(numberOfRecords>0)
 		{
 			int numberOfFields = infoPairs[0].length;
@@ -59,11 +60,12 @@ public class QueryInitiator {
 				
 				
 				RESTQuery rest = new RESTQuery();
-				status[i][0] = rest.createAccount("Account", accountBody);
-				status[i][1] = rest.createAccount("Business", businessBody);
-				status[i][2] = rest.createAccount("ShipTo", shipToBody);
+				String accountField[] = {"PartyNumber"};
+				restResponseAccount[i][0] = rest.createAccount("Account", accountBody,accountField);
+				restResponseAccount[i][1] = rest.createAccount("Business", businessBody,null);
+				restResponseAccount[i][2] = rest.createAccount("ShipTo", shipToBody,null);
 			}
 		}
-		return status;
+		return restResponseAccount;
 	}
 }
