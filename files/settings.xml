@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OSC>
+<Settings>
+<SAPDataFile>E:/FTPROOT/FTPOSCDEV/Customer</SAPDataFile>
+<LogStore>E:/BatchIntegration/FileStore/DataStore</LogStore>
+<DataStore>E:/BatchIntegration/FileStore/DataStore</DataStore>
+<MappingFile>./files/mapping.csv</MappingFile>
+</Settings>
+</OSC>
