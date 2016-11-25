@@ -27,11 +27,16 @@ public class AppStart {
 		CSVReader cs = new CSVReader();
 		
 		Settings settings = Settings.getInstance();
-		
+		try{
+		//Thread.sleep(60*1000);
+		}
+		catch(Exception e){}
 		System.out.println(settings.getSAPDataFileFolder());
 		System.out.println(settings.getMapping());
 		HashMap<String, Pair> hs = cs.readMapping(settings.getMapping());
 		
+		//
+		int numberOfFields = hs.size();
 		
 		
 	}

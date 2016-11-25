@@ -6,6 +6,12 @@ public class Settings {
 	private String LogStore="";
 	private String DataStore="";
 	private String MappingFile="";
+	private String LoginId="";
+	private String Password="";
+	private String AccountURL="";
+	private String BusinessURL="";
+	private String ShipToURL="";
+	
 	
 	private static Settings obj = new Settings();
 	private Settings(){}
@@ -28,6 +34,46 @@ public class Settings {
 	public void setMapping(String mappingLocation)
 	{
 		MappingFile = mappingLocation;
+	}
+	public void setLoginId(String loginID)
+	{
+		LoginId = loginID;
+	}
+	public String getLoginID()
+	{
+		return LoginId;
+	}
+	public void setPassword(String password)
+	{
+		Password = password;
+	}
+	public String getPassword()
+	{
+		return Password;
+	}
+	public void setAccountURL(String accountURL)
+	{
+		AccountURL = accountURL;
+	}
+	public String getAccountURL()
+	{
+		return AccountURL;
+	}
+	public void setBusinessURL(String businessURL)
+	{
+		BusinessURL = businessURL;
+	}
+	public String getBusinessURL()
+	{
+		return BusinessURL;
+	}
+	public void setShipToURL(String shipTo)
+	{
+		ShipToURL = shipTo;
+	}
+	public String getShipToURL()
+	{
+		return ShipToURL;
 	}
 	public String getMapping()
 	{

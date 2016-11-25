@@ -2,8 +2,13 @@
 <OSC>
 <Settings>
 <SAPDataFile>E:/FTPROOT/FTPOSCDEV/Customer</SAPDataFile>
-<LogStore>E:/BatchIntegration/FileStore/DataStore</LogStore>
+<LogStore>E:/BatchIntegration/FileStore/LogStore</LogStore>
 <DataStore>E:/BatchIntegration/FileStore/DataStore</DataStore>
 <MappingFile>./files/mapping.csv</MappingFile>
+<LoginId>kajal@suvitech.com</LoginId>
+<Password>Welcome@1</Password>
+<ShipToURL>https://cbsp-test.crm.ap1.oraclecloud.com/crmCommonApi/resources/latest/ShipTo_c</ShipToURL>
+<AccountURL>https://cbsp-test.crm.ap1.oraclecloud.com/crmCommonApi/resources/latest/accounts</AccountURL>
+<BusinessURL>https://cbsp-test.crm.ap1.oraclecloud.com/crmCommonApi/resources/latest/Business_c</BusinessURL>
 </Settings>
 </OSC>
