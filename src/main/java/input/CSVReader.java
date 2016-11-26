@@ -41,4 +41,42 @@ public class CSVReader {
 				
 		return null;
 	}
+	
+	public int returnMappingObjectCount(String mappingFileLocation,String objectName)
+	{
+		try {
+			String readingLine="";
+			int objectCounter=0;
+			BufferedReader br = new BufferedReader(new FileReader(mappingFileLocation));
+			
+			//Skip one for header
+			readingLine = br.readLine();
+			
+			//Hashmap to store SAP_Field, OSC_Field and Object
+			HashMap<String,Pair> mapper = new HashMap<String,Pair>();
+			
+			while ((readingLine = br.readLine()) != null) {
+
+                // use comma as separator, -1 option is set to consider null values
+                String[] fieldMap = readingLine.split(",",-1);
+                
+                //Insert key value in the map
+                if(fieldMap[2]!=null && fieldMap[2].trim().length()>0)
+                {
+                	if(fieldMap[2].toLowerCase().trim().equals(objectName.toLowerCase().trim()))
+                	{
+                		objectCounter++;
+                	}
+                }
+            }
+			return objectCounter;
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+				
+		return -1;
+	}
 }

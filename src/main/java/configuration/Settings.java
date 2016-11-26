@@ -11,7 +11,11 @@ public class Settings {
 	private String AccountURL="";
 	private String BusinessURL="";
 	private String ShipToURL="";
-	
+	private String SMTP_URL="";
+	private String SMTP_Port="";
+	private String SMTP_Username="";
+	private String SMTP_Password="";
+	private String NotificationReceiver="";
 	
 	private static Settings obj = new Settings();
 	private Settings(){}
@@ -91,6 +95,47 @@ public class Settings {
 	{
 		return LogStore;
 	}
+	public void setSmtpUrl(String smtpUrl)
+	{
+		SMTP_URL = smtpUrl;
+	}
+	public String getSmtpUrl()
+	{
+		return SMTP_URL;
+	}
+	public void setSmtpPort(String smtpPort)
+	{
+		SMTP_Port = smtpPort;
+	}
+	public String getSmtpPort()
+	{
+		return SMTP_Port;
+	}
+	public void setSmtpUsername(String smtpUsername)
+	{
+		SMTP_Username = smtpUsername;
+	}
+	public String getSmtpUsername()
+	{
+		return SMTP_Username;
+	}
+	public void setSmtpPassword(String smtpPassword)
+	{
+		SMTP_Password = smtpPassword;
+	}
+	public String getSmtpPassword()
+	{
+		return SMTP_Password;
+	}
+	public void setNotificationReceiver(String reciverList)
+	{
+		NotificationReceiver = reciverList;
+	}
+	public String getNotificationReceiver()
+	{
+		return NotificationReceiver;
+	}
+	
 	
 	
 	}

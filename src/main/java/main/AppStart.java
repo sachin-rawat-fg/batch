@@ -3,6 +3,7 @@ package main;
 
 
 import javafx.util.Pair;
+import util.Mailer;
 
 import java.util.HashMap;
 
@@ -36,6 +37,8 @@ public class AppStart {
 		HashMap<String, Pair> hs = cs.readMapping(settings.getMapping());
 		
 		//
+		Mailer mm = new Mailer();
+		mm.sendMail("abhishek.vijayvargia@freshgravity.com", "notification test", "test");
 		int numberOfFields = hs.size();
 		
 		

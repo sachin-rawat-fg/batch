@@ -79,6 +79,15 @@ public class XMLReader {
 				//Set mapping
 				sc.setMapping(node.getChildText("MappingFile"));
 				
+				//Set smtp details
+				sc.setSmtpUrl(node.getChildText("SMTPURL"));
+				sc.setSmtpPort(node.getChildText("SMTPPort"));
+				sc.setSmtpUsername(node.getChildText("SMTPUserName"));
+				sc.setSmtpPassword(node.getChildText("SMTPPassword"));
+				
+				//notification setting
+				sc.setNotificationReceiver(node.getChildText("notificationReceiver"));
+				
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี
 		}

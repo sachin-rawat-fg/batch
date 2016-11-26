@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Set;
 
+import businessService.QueryInitiator;
 import configuration.Settings;
 import input.CSVReader;
 import input.FolderOperations;
@@ -35,12 +36,15 @@ public class Initiator {
 			{
 				//Get pairs from xml file
 				Pair<String,String> infoPairs[][] = xml.readSAP(ff,mapper);
-				
+				QueryInitiator query = new QueryInitiator();
+				query.queryInitiator(infoPairs, mapper);
 				//Send pair to business service
 				//Implement QueryBuilder
 				//Implement RESTQuery
 				//Implement QueryInitiator
 				//Implement DAO
+				//Research on logs - overall, system, csv status, failure details
+				
 			}
 		}
 	}

@@ -10,5 +10,9 @@
 <ShipToURL>https://cbsp-test.crm.ap1.oraclecloud.com/crmCommonApi/resources/latest/ShipTo_c</ShipToURL>
 <AccountURL>https://cbsp-test.crm.ap1.oraclecloud.com/crmCommonApi/resources/latest/accounts</AccountURL>
 <BusinessURL>https://cbsp-test.crm.ap1.oraclecloud.com/crmCommonApi/resources/latest/Business_c</BusinessURL>
+<SMTPURL>smtp.gmail.com</SMTPURL>
+<SMTPPort>465</SMTPPort>
+<SMTPUserName>freshgravityapi@gmail.com</SMTPUserName>
+<SMTPPassword>freshgravityds</SMTPPassword>
 </Settings>
 </OSC>
