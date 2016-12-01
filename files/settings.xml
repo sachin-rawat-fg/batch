@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OSC>
 <Settings>
-<SAPDataFile>E:/FTPROOT/FTPOSCDEV/Customer</SAPDataFile>
-<LogStore>E:/BatchIntegration/FileStore/LogStore</LogStore>
-<DataStore>E:/BatchIntegration/FileStore/DataStore</DataStore>
+<SAPDataFile>C:\FTPROOT\FTPOSCDEV\Customer</SAPDataFile>
+<LogStore>C:\BatchIntegration\FileStore\LogStore</LogStore>
+<DataStore>C:\BatchIntegration\FileStore\DataStore</DataStore>
 <DataStoreArchiveLimitInDays>90</DataStoreArchiveLimitInDays>
 <numberOfRetry>4</numberOfRetry>
 <MappingFile>./files/mapping.csv</MappingFile>
@@ -16,6 +16,10 @@
 <SMTPPort>465</SMTPPort>
 <SMTPUserName>freshgravityapi@gmail.com</SMTPUserName>
 <SMTPPassword>freshgravityds</SMTPPassword>
-<notificationReceiver>abhishek.vijayvargia@freshgravity.com</notificationReceiver>
+<notificationReceiver>abhishek.vijayvargia@freshgravity.com,shruti.gurjar@freshgravity.com,bhargavi.chagantipati@freshgravity.com,debashis.malo@freshgravity.com</notificationReceiver>
+<DatabaseDriver>org.h2.Driver</DatabaseDriver>
+<DatabaseUrl>jdbc:h2:~/test</DatabaseUrl>
+<DatabaseUsername>sa</DatabaseUsername>
+<DatabasePassword></DatabasePassword>
 </Settings>
 </OSC>

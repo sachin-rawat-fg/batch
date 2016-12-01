@@ -19,6 +19,12 @@ public class AppStart {
 	 */
 	public static void main(String[] args) {
 		
+		Initiator init = new Initiator();
+		String SettingsFile = "./files/settings.xml";
+		init.initiateProcess(SettingsFile);
+		
+		
+		/*
 		//Path for settings file
 		String SettingsFile = "./files/settings.xml";
 
@@ -43,6 +49,7 @@ public class AppStart {
 		int numberOfFields = hs.size();
 		FolderOperations fold = new FolderOperations();
 		fold.fileMover("", "", 2);
+		*/
 	}
 
 }

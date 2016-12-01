@@ -18,6 +18,11 @@ public class Settings {
 	private String NotificationReceiver="";
 	private int NumberOfRetry=0;
 	private int numberOfDaysArchive=0; 
+	private String DBClass ="";
+	private String DBUrl ="";
+	private String DBUsername="";
+	private String DBPassword="";
+		
 	
 	private static Settings obj = new Settings();
 	private Settings(){}
@@ -137,6 +142,15 @@ public class Settings {
 	{
 		return NumberOfRetry;
 	}
+	public void setNumberOfArchieveDays(int days)
+	{
+		numberOfDaysArchive = days;
+	}
+	public int getsetNumberOfArchieveDays()
+	{
+		return numberOfDaysArchive;
+	}
+	
 	public void setNotificationReceiver(String reciverList)
 	{
 		NotificationReceiver = reciverList;
@@ -145,13 +159,38 @@ public class Settings {
 	{
 		return NotificationReceiver;
 	}
-	public void setNumberOfArchieveDays(int days)
+	public void setDBUrl(String dburl)
 	{
-		numberOfDaysArchive = days;
+		DBUrl = dburl;
 	}
-	public int getsetNumberOfArchieveDays()
+	public String getDBUrl()
 	{
-		return numberOfDaysArchive;
+		return DBUrl;
+	}
+	public void setDBClass(String classurl)
+	{
+		DBClass = classurl;
+	}
+	public String getDBClass()
+	{
+		return DBClass;
+	}
+	
+	public void setDBUsername(String username)
+	{
+		DBUsername = username;
+	}
+	public String getDBUsername()
+	{
+		return DBUsername;
+	}
+	public void setDBPassword(String password)
+	{
+		DBPassword = password;
+	}
+	public String getDBPassword()
+	{
+		return DBPassword;
 	}
 	
 	

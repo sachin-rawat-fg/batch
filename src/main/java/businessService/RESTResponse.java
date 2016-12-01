@@ -7,11 +7,20 @@ public class RESTResponse {
 
 	private int statusCode;
 	private List<Pair<String,String> > responseList;
+	private String errorMessage="";
 	
-	public RESTResponse(int code,List<Pair<String,String> > list )
+	
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+	public RESTResponse(int code,List<Pair<String,String> > list,String error )
 	{
 		statusCode = code;
 		responseList = list;
+		errorMessage = error;
 	}
 	public void setStatusCode(int code)
 	{

@@ -30,6 +30,7 @@ public class FolderOperations {
 		DateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
 		Date date = new Date();
 		
+		//Foldername contains YYYYMMDD-HHMMSS format
 		String folderName = dateTimeFormat.format(date);
 		String currentDate = dateFormat.format(date);
 		
@@ -39,7 +40,8 @@ public class FolderOperations {
 		
 		try {
 			FileUtils.copyDirectory(new File(inputFolder), new File(newDirNamePath));
-			FileUtils.cleanDirectory(new File(inputFolder));
+			//Commented for testing
+			//FileUtils.cleanDirectory(new File(inputFolder));
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -55,16 +57,20 @@ public class FolderOperations {
 		};
 		
 		File folderList[] = folders.listFiles(directoryFilter);
+		
+		//Get the previous date
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DATE, -numberOfDays);
 		Date olderDate = c.getTime();
 		String olderDateString = dateFormat.format(olderDate);
 		Integer olderDateInt = Integer.valueOf(olderDateString);
 		
+		
+		//Remove all the data storage older than x days
 		for(File ff:folderList)
 		{
 			String fileDate = ff.getName();
-			int fileNameDate = Integer.valueOf(fileDate);
+			int fileNameDate = Integer.valueOf(fileDate.split("-")[0]);
 			if((olderDateInt-fileNameDate)>0)
 			{
 				try {

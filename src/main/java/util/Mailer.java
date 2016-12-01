@@ -57,20 +57,21 @@ public class Mailer {
 			  message.setFrom(new InternetAddress(USER_NAME));
 			  for(String receiver:receiverList)
 			  {
+				  System.out.println(receiver);
 				  message.addRecipient(Message.RecipientType.TO,new InternetAddress(receiver));  
 				  
 			  }
 			  message.setSubject(notificationSubject);  
 			   
-			   //message.setText(text);
+			  //message.setText(text);
  
-			   BodyPart notificationBodyPart = new MimeBodyPart();  
-			   notificationBodyPart.setText(notificationBody);  
+			  BodyPart notificationBodyPart = new MimeBodyPart();  
+			  notificationBodyPart.setText(notificationBody);  
 			   
 			   
 			   Multipart multipart = new MimeMultipart();  
 			   multipart.addBodyPart(notificationBodyPart); 
-				    
+			   if(attachmentFileLocationList!=null)
 			   for(String attachement:attachmentFileLocationList)
 			   {
 				   MimeBodyPart attachmentPart = new MimeBodyPart();  

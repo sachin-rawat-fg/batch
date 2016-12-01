@@ -36,10 +36,13 @@ public class XMLReader {
 				for(int j=0;j<keySetStrings.length;j++)
 				{
 					String childNode = node.getChildText(keySetStrings[j]);
+					//System.out.println(keySetStrings[j] +" # "+childNode);
 					recordPairs[i][j] = new Pair<String,String>(keySetStrings[j], childNode);
+					//System.out.println(recordPairs[i][j].getKey() +" $$ "+recordPairs[i][j].getValue());
+					
 				}	
-				System.out.println("Customer :"+node.getChildText("Customer"));
-				System.out.println("Name :"+node.getChildText("Locationname"));
+				//System.out.println("Customer :"+node.getChildText("Customer"));
+				//System.out.println("Name :"+node.getChildText("Locationname"));
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี
 			return recordPairs;
@@ -57,9 +60,9 @@ public class XMLReader {
 		
 		Settings sc = Settings.getInstance();
 		try{
-			System.out.println(xmlFile.getCanonicalPath());
+			//System.out.println(xmlFile.getCanonicalPath());
 			Document document = (Document) builder.build(xmlFile);
-			System.out.println(document.getContentSize());
+			//System.out.println(document.getContentSize());
 			Element rootNode = document.getRootElement();
 			//System.out.println(rootNode.getText());
 			List itemList = rootNode.getChildren("Settings");
@@ -85,6 +88,15 @@ public class XMLReader {
 				sc.setSmtpUsername(node.getChildText("SMTPUserName"));
 				sc.setSmtpPassword(node.getChildText("SMTPPassword"));
 				
+				
+				//Set url for different objects
+				sc.setAccountURL(node.getChildText("AccountURL"));
+				sc.setBusinessURL(node.getChildText("BusinessURL"));
+				sc.setShipToURL(node.getChildText("ShipToURL"));
+				sc.setLoginId(node.getChildText("LoginId"));
+				sc.setPassword(node.getChildText("Password"));
+				
+				
 				//notification setting
 				sc.setNotificationReceiver(node.getChildText("notificationReceiver"));
 				
@@ -93,6 +105,13 @@ public class XMLReader {
 				
 				//number of archieve days
 				sc.setNumberOfArchieveDays(Integer.valueOf(node.getChildText("DataStoreArchiveLimitInDays")));
+				
+				
+				//Database settings
+				sc.setDBClass(node.getChildText("DatabaseDriver"));
+				sc.setDBUrl(node.getChildText("DatabaseUrl"));
+				sc.setDBUsername(node.getChildText("DatabaseUsername"));
+				sc.setDBPassword("DatabasePassword");
 				
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี

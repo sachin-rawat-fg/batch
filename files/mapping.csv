@@ -2,18 +2,18 @@ SAP_Field,OSC_Field,OSC_Object
 Customer,,
 Name,OrganizationName ,Account
 Address,,
-Taxnumber,TaxId_c ,Account
+Taxnumber,OrganizationDEO_TaxID1_c,Account
 Accountgroup,,
 Pendingpt,,
-Investtype,InverstmentType_c ,Account
+Investtype,,
 LocidSor,RecordName,ShipTo
-Locationname,HouseNumber_c,ShipTo
+Locationname,,
 Ltype,RecordName,Business
 Ltypename,,
 StartDate,AgreementStartDate_c ,Business
 EndDate,AgreementEndDate_c ,Business
 SupplementNonoil,,
-Searchterm1,SeachTerm1_c ,Account
+Searchterm1,,
 Searchterm2,,
 Street,Street_c ,ShipTo
 District,,
@@ -22,7 +22,7 @@ Province,Province_c ,ShipTo
 Postalcode,PostalCode_c ,ShipTo
 Country,Country_c ,ShipTo
 Countrytext,,
-Orderblock,OrderBlock_c ,Account
+Orderblock,,
 Status,,
 UpdateDate,,
 UpdateTime,,

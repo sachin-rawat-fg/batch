@@ -1,18 +1,32 @@
 package businessService;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import configuration.Settings;
+import dao.DMLQuery;
 import input.CSVReader;
 import javafx.util.Pair;
+import util.LogRecordQuery;
 
 public class QueryInitiator {
 
-	public RESTResponse[][] queryInitiator(Pair<String,String> infoPairs[][],HashMap<String, Pair> mapper)
+	public LogRecordQuery queryInitiator(Pair<String,String> infoPairs[][],HashMap<String, Pair> mapper)
 	{
+		try{
 		int numberOfRecords = infoPairs.length;
+		LogRecordQuery lrq = new LogRecordQuery();
+		lrq.setRECORD_COUNT(numberOfRecords);
+		int numberOfSucess = 0;
 		int status[][] = new int[numberOfRecords][3];
 		RESTResponse restResponseAccount[][] = new RESTResponse[numberOfRecords][3];
+		DMLQuery dml = new DMLQuery();
 		if(numberOfRecords>0)
 		{
 			int numberOfFields = infoPairs[0].length;
@@ -28,12 +42,30 @@ public class QueryInitiator {
 			
 			for(int i=0;i<numberOfRecords;i++)
 			{
+				accountPairCounter=0;
+				businessPairCounter=0;
+				shiptoPairCounter=0;
+				
+				//Search for customer id
+				String custID="";
+				Pair<String,String> records[] = infoPairs[i];
+				for(Pair<String,String> record:records)
+				{
+					if(record.getKey()!=null && record.getValue()!=null && record.getKey().equals("Customer"))
+					{
+						custID = record.getValue();
+						break;
+					}
+					
+				}
+				
 				for(int j=0;j<numberOfFields;j++)
 				{
 					Pair<String,String> SAPPair = infoPairs[i][j];
 					Pair<String,String> mapping = mapper.get(SAPPair.getKey());
 					if(mapping.getKey()!=null && mapping.getValue()!=null)
 					{
+						System.out.println(mapping.getValue());
 						switch(mapping.getValue().trim())
 						{
 						case "Account":
@@ -55,17 +87,63 @@ public class QueryInitiator {
 				}			
 				QueryBuilder QB = new QueryBuilder();
 				String accountBody = QB.createJSONObject(accountPair);
-				String shipToBody = QB.createJSONObject(BusinessPair);
-				String businessBody = QB.createJSONObject(ShipToPair);
 				
+				String businessBody = QB.createJSONObject(BusinessPair);
+				String shipToBody = QB.createJSONObject(ShipToPair);
 				
+				JSONParser parser = new JSONParser();
+				System.out.println("@@@"+accountBody);
+	        	JSONObject jsonAcc = (JSONObject) parser.parse(accountBody);
+	        	//String custID = (String)jsonAcc.get("Customer");
+				System.out.print("#"+custID);
 				RESTQuery rest = new RESTQuery();
 				String accountField[] = {"PartyNumber"};
-				restResponseAccount[i][0] = rest.createAccount("Account", accountBody,accountField);
-				restResponseAccount[i][1] = rest.createAccount("Business", businessBody,null);
-				restResponseAccount[i][2] = rest.createAccount("ShipTo", shipToBody,null);
+				
+				restResponseAccount[i][0] = rest.createRecord("Account", accountBody,accountField);
+				
+				List<Pair<String,String> >list = restResponseAccount[i][0].getResponseList();
+				System.out.println(list.size());
+				String partyNumber = "";
+				for(Pair<String,String> pp :list)
+				{
+					//System.out.println(pp.getValue());
+					if(pp.getKey().equals("PartyNumber"))
+						{
+							partyNumber = pp.getValue();
+							break;
+						}
+				}
+				System.out.println("!!"+partyNumber);
+				
+				
+				restResponseAccount[i][1] = rest.createRecord("Business", businessBody,null);
+				restResponseAccount[i][2] = rest.createRecord("ShipTo", shipToBody,null);
+				
+				DateFormat dateTimeFormat = new SimpleDateFormat("YYYYMMdd-HHmmss");
+				Date date = new Date();
+				String dateString = dateTimeFormat.format(date);
+				String status1 = String.valueOf(restResponseAccount[i][0].getStatusCode());
+				String status2 = String.valueOf(restResponseAccount[i][1].getStatusCode());
+				String status3 = String.valueOf(restResponseAccount[i][2].getStatusCode());
+				
+				String overAllResponse="FAIL";
+				if(status1.startsWith("2") )//&& status2.startsWith("2") && status3.startsWith("3"))
+				{
+					overAllResponse = "SUCCESS";
+					numberOfSucess++;
+				}
+				System.out.println(custID+"::::"+partyNumber);
+				dml.insertInDatabase("CUSTOMER", custID, partyNumber, "Insert", overAllResponse, status1, status2,status3, dateString, 1);
 			}
 		}
-		return restResponseAccount;
+		lrq.setSUCCESS_COUNT(numberOfSucess);
+		return lrq;
 	}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }
