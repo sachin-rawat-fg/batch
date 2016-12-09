@@ -220,4 +220,60 @@ public class RESTQuery {
 		
 		return null;
 	}
+	/*
+	public RESTResponse recordExists(String queryType,String fieldName,String fieldValue)
+	{
+		
+		try{
+			Settings set = Settings.getInstance();
+			String contentType = "application/vnd.oracle.adf.resourceitem+json";
+			String username = set.getLoginID();
+			String password = set.getPassword();
+			String url="";
+			switch(queryType)
+			{
+				case "Account":
+					url = set.getAccountURL();
+					break;
+				case "Business":
+					url = set.getBusinessURL();
+					break;
+				case "ShipTo":
+					url = set.getShipToURL();
+					break;
+			}
+			String authString = username + ":" + password;
+	        String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
+	        
+	        Client restClient = Client.create();
+	        WebResource webResource = restClient.resource(url);
+	        //System.out.println(url);
+	        ClientResponse resp = webResource.queryParam(fieldName, fieldValue).type(contentType).header("Authorization", "Basic " + authStringEnc).get(ClientResponse.class,body);
+	        String output = resp.getEntity(String.class);
+	        
+	        Pair<Integer,String> statusReponse = new Pair<Integer,String>(resp.getStatus(), null);
+	 
+	        List <Pair<String,String> > lst = new ArrayList(); 
+	   
+	        String error = null;
+	        if(resp.getStatus()>=200 && resp.getStatus()<=210)
+	        {
+	        	JSONParser parser = new JSONParser();
+	        	JSONObject json = (JSONObject) parser.parse(output);
+	        	if(responseFields!=null)
+	        	for(String res:responseFields)
+	        	{
+	        		lst.add(new Pair<String,String>(res,(String) json.get(res)));
+	        	}
+	        }
+	        else
+	        {
+	        	error = output;
+	        }
+	        RESTResponse restRep = new RESTResponse(resp.getStatus(),lst,error);        
+			return restRep;
+			}
+			catch(Exception e){e.printStackTrace();}return null;
+	}
+	*/
 }

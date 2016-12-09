@@ -6,6 +6,14 @@
 <DataStore>C:\BatchIntegration\FileStore\DataStore</DataStore>
 <DataStoreArchiveLimitInDays>90</DataStoreArchiveLimitInDays>
 <numberOfRetry>4</numberOfRetry>
+<CommunicationMappingFile>./files/mappings/COMMUNICATION_Mapping.csv</CommunicationMappingFile>
+<CustomerMappingFile>./files/mappings/CUSTOMER_Mapping.csv</CustomerMappingFile>
+<CustomerSalesIDMappingFile>./files/mappings/CUSTOMER_SALESID_Mapping.csv</CustomerSalesIDMappingFile>
+<CustomerShipToMappingFile>./files/mappings/CUSTOMER_SHIPTO_Mapping.csv</CustomerShipToMappingFile>
+<LatestOrderMappingFile>./files/mappings/LATEST_ORDER_Mapping.csv</LatestOrderMappingFile>
+<ProductMappingFile>./files/mappings/PRODUCT_Mapping.csv</ProductMappingFile>
+<SalesAreaMappingFile>./files/mappings/SALES_AREA_Mapping.csv</SalesAreaMappingFile>
+<SalesPersonMappingFile>./files/mappings/SALES_PERSON_Mapping.csv</SalesPersonMappingFile>
 <MappingFile>./files/mapping.csv</MappingFile>
 <LoginId>kajal@suvitech.com</LoginId>
 <Password>Welcome@1</Password>
@@ -16,7 +24,7 @@
 <SMTPPort>465</SMTPPort>
 <SMTPUserName>freshgravityapi@gmail.com</SMTPUserName>
 <SMTPPassword>freshgravityds</SMTPPassword>
-<notificationReceiver>abhishek.vijayvargia@freshgravity.com,shruti.gurjar@freshgravity.com,bhargavi.chagantipati@freshgravity.com,debashis.malo@freshgravity.com</notificationReceiver>
+<notificationReceiver>abhishek.vijayvargia@freshgravity.com</notificationReceiver>
 <DatabaseDriver>org.h2.Driver</DatabaseDriver>
 <DatabaseUrl>jdbc:h2:~/test</DatabaseUrl>
 <DatabaseUsername>sa</DatabaseUsername>

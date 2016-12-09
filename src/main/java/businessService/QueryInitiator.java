@@ -17,7 +17,9 @@ import util.LogRecordQuery;
 
 public class QueryInitiator {
 
-	public LogRecordQuery queryInitiator(Pair<String,String> infoPairs[][],HashMap<String, Pair> mapper)
+	
+	
+	public LogRecordQuery fileToOSCQuery(Pair<String,String> infoPairs[][],HashMap<String, Pair> mapper)
 	{
 		try{
 		int numberOfRecords = infoPairs.length;
@@ -146,4 +148,30 @@ public class QueryInitiator {
 		return null;
 	}
 	
+	public RESTResponse querySelector(String queryFlag, 
+			String accountBody,
+			String businessBody,
+			String shipToBody, 
+			String accountFields[],
+			String businessFields[],
+			String shipToFields[])
+	{
+		switch(queryFlag)
+		{
+		case "C":
+			break;
+		case "U":
+			break;
+		case "B":
+			break;
+		case "A":
+			break;
+		case "D":
+			break;
+		case "R":
+			break;
+		}
+		
+		return null;
+	}
 }

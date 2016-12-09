@@ -64,7 +64,7 @@ public class Initiator {
 				QueryInitiator query = new QueryInitiator();
 				
 				//Store log record for each xml file.
-				LogRecordQuery partialLog = query.queryInitiator(infoPairs, mapper);
+				LogRecordQuery partialLog = query.fileToOSCQuery(infoPairs, mapper);
 				
 				//Updates global variable
 				numberOfRecords += partialLog.getRECORD_COUNT();

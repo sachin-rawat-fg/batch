@@ -3,9 +3,13 @@ package main;
 
 
 import javafx.util.Pair;
+import util.Converter;
 import util.Mailer;
 
+import java.io.File;
 import java.util.HashMap;
+
+import org.apache.commons.io.FilenameUtils;
 
 import configuration.Settings;
 import input.CSVReader;
@@ -21,35 +25,11 @@ public class AppStart {
 		
 		Initiator init = new Initiator();
 		String SettingsFile = "./files/settings.xml";
-		init.initiateProcess(SettingsFile);
-		
-		
-		/*
-		//Path for settings file
-		String SettingsFile = "./files/settings.xml";
-
-		//Reading setting.xml to get settings
-		XMLReader xml = new XMLReader();
-		xml.readSetting(SettingsFile);
-		
-		CSVReader cs = new CSVReader();
-		
-		Settings settings = Settings.getInstance();
-		try{
-		//Thread.sleep(60*1000);
-		}
-		catch(Exception e){}
-		System.out.println(settings.getSAPDataFileFolder());
-		System.out.println(settings.getMapping());
-		HashMap<String, Pair> hs = cs.readMapping(settings.getMapping());
-		
-		//
-		Mailer mm = new Mailer();
-		mm.sendMail("abhishek.vijayvargia@freshgravity.com", "notification test", "test");
-		int numberOfFields = hs.size();
-		FolderOperations fold = new FolderOperations();
-		fold.fileMover("", "", 2);
-		*/
+		//init.initiateProcess(SettingsFile);
+		Converter convert = new Converter();
+		convert.generateAllMappingFiles("./sample", "./files/mappings/");
 	}
+	
+	
 
 }

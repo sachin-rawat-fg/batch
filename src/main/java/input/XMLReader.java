@@ -18,6 +18,15 @@ import java.io.File;
 
 public class XMLReader {
 
+	public HashMap<String,String> readFlags(File xmlFile,List<String> flags)
+	{
+		//Declare hashmap object
+		HashMap<String, String> flagMapper = new HashMap<>();
+		
+		//
+		
+		return null;
+	}
 	public Pair<String,String>[][] readSAP(File xmlFile,HashMap<String,Pair> mapper)
 	{
 		SAXBuilder builder = new SAXBuilder();
@@ -36,13 +45,8 @@ public class XMLReader {
 				for(int j=0;j<keySetStrings.length;j++)
 				{
 					String childNode = node.getChildText(keySetStrings[j]);
-					//System.out.println(keySetStrings[j] +" # "+childNode);
 					recordPairs[i][j] = new Pair<String,String>(keySetStrings[j], childNode);
-					//System.out.println(recordPairs[i][j].getKey() +" $$ "+recordPairs[i][j].getValue());
-					
 				}	
-				//System.out.println("Customer :"+node.getChildText("Customer"));
-				//System.out.println("Name :"+node.getChildText("Locationname"));
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี
 			return recordPairs;
@@ -53,6 +57,7 @@ public class XMLReader {
 		}
 		return null;
 	}
+	
 	public void readSetting(String fileLocation)
 	{
 		SAXBuilder builder = new SAXBuilder();
@@ -112,6 +117,16 @@ public class XMLReader {
 				sc.setDBUrl(node.getChildText("DatabaseUrl"));
 				sc.setDBUsername(node.getChildText("DatabaseUsername"));
 				sc.setDBPassword("DatabasePassword");
+				
+				//Mapping files
+				sc.setCOMMUNICATION_Mapping("CommunicationMappingFile");
+				sc.setCUSTOMER_Mapping("CustomerMappingFile");
+				sc.setCUSTOMER_SALESID_Mapping("CustomerSalesIDMappingFile");
+				sc.setCUSTOMER_SHIPTO_Mapping("CustomerShipToMappingFile");
+				sc.setLATEST_ORDER_Mapping("LatestOrderMappingFile");
+				sc.setPRODUCT_Mapping("ProductMappingFile");
+				sc.setSALES_AREA_Mapping("SalesAreaMappingFile");
+				sc.setSALES_PERSON_Mapping("SalesPersonMappingFile");
 				
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี

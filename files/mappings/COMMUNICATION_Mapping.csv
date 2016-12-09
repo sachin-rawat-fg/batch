@@ -1,0 +1,13 @@
+SAP_Field,OSC_Field,OSC_Object
+Customer
+CustName
+TelNumber
+TelExtens
+MobileNumber
+FaxNumber
+FaxExt
+Email
+DataLine
+Status
+UpdateDate
+UpdateTime

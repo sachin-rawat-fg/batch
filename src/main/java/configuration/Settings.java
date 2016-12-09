@@ -22,8 +22,64 @@ public class Settings {
 	private String DBUrl ="";
 	private String DBUsername="";
 	private String DBPassword="";
+	private String COMMUNICATION_Mapping="";
+	private String CUSTOMER_Mapping="";
+	private String CUSTOMER_SALESID_Mapping="";
+	private String CUSTOMER_SHIPTO_Mapping="";
+	private String LATEST_ORDER_Mapping="";
+	private String PRODUCT_Mapping="";
+	private String SALES_AREA_Mapping="";
+	private String SALES_PERSON_Mapping="";
 		
 	
+	public String getCOMMUNICATION_Mapping() {
+		return COMMUNICATION_Mapping;
+	}
+	public void setCOMMUNICATION_Mapping(String cOMMUNICATION_Mapping) {
+		COMMUNICATION_Mapping = cOMMUNICATION_Mapping;
+	}
+	public String getCUSTOMER_Mapping() {
+		return CUSTOMER_Mapping;
+	}
+	public void setCUSTOMER_Mapping(String cUSTOMER_Mapping) {
+		CUSTOMER_Mapping = cUSTOMER_Mapping;
+	}
+	public String getCUSTOMER_SALESID_Mapping() {
+		return CUSTOMER_SALESID_Mapping;
+	}
+	public void setCUSTOMER_SALESID_Mapping(String cUSTOMER_SALESID_Mapping) {
+		CUSTOMER_SALESID_Mapping = cUSTOMER_SALESID_Mapping;
+	}
+	public String getCUSTOMER_SHIPTO_Mapping() {
+		return CUSTOMER_SHIPTO_Mapping;
+	}
+	public void setCUSTOMER_SHIPTO_Mapping(String cUSTOMER_SHIPTO_Mapping) {
+		CUSTOMER_SHIPTO_Mapping = cUSTOMER_SHIPTO_Mapping;
+	}
+	public String getLATEST_ORDER_Mapping() {
+		return LATEST_ORDER_Mapping;
+	}
+	public void setLATEST_ORDER_Mapping(String lATEST_ORDER_Mapping) {
+		LATEST_ORDER_Mapping = lATEST_ORDER_Mapping;
+	}
+	public String getPRODUCT_Mapping() {
+		return PRODUCT_Mapping;
+	}
+	public void setPRODUCT_Mapping(String pRODUCT_Mapping) {
+		PRODUCT_Mapping = pRODUCT_Mapping;
+	}
+	public String getSALES_AREA_Mapping() {
+		return SALES_AREA_Mapping;
+	}
+	public void setSALES_AREA_Mapping(String sALES_AREA_Mapping) {
+		SALES_AREA_Mapping = sALES_AREA_Mapping;
+	}
+	public String getSALES_PERSON_Mapping() {
+		return SALES_PERSON_Mapping;
+	}
+	public void setSALES_PERSON_Mapping(String sALES_PERSON_Mapping) {
+		SALES_PERSON_Mapping = sALES_PERSON_Mapping;
+	}
 	private static Settings obj = new Settings();
 	private Settings(){}
 	public static Settings getInstance( ) {
