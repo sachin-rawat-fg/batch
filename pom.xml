@@ -68,6 +68,16 @@
     <artifactId>h2</artifactId>
     <version>1.4.193</version>
 </dependency>
+    <dependency>
+<groupId>org.apache.poi</groupId>
+<artifactId>poi-ooxml</artifactId>
+<version>3.10-FINAL</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.10-FINAL</version>
+</dependency>
 </dependencies>
 </project>
 

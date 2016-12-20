@@ -5,7 +5,7 @@ import javafx.util.Pair;
 
 public class RESTResponse {
 
-	private int statusCode;
+	private int statusCode=0;
 	private List<Pair<String,String> > responseList;
 	private String errorMessage="";
 	

@@ -35,13 +35,13 @@ public class FolderOperations {
 		String currentDate = dateFormat.format(date);
 		
 		//Create a directory
-		String newDirNamePath = dataStore+"/"+folderName;
+		String newDirNamePath = dataStore+"/"+currentDate;
 		boolean dirCreated = new File(newDirNamePath).mkdirs();
 		
 		try {
 			FileUtils.copyDirectory(new File(inputFolder), new File(newDirNamePath));
 			//Commented for testing
-			//FileUtils.cleanDirectory(new File(inputFolder));
+			FileUtils.cleanDirectory(new File(inputFolder));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

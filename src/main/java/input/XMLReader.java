@@ -87,6 +87,7 @@ public class XMLReader {
 				//Set mapping
 				sc.setMapping(node.getChildText("MappingFile"));
 				
+				
 				//Set smtp details
 				sc.setSmtpUrl(node.getChildText("SMTPURL"));
 				sc.setSmtpPort(node.getChildText("SMTPPort"));
@@ -116,18 +117,20 @@ public class XMLReader {
 				sc.setDBClass(node.getChildText("DatabaseDriver"));
 				sc.setDBUrl(node.getChildText("DatabaseUrl"));
 				sc.setDBUsername(node.getChildText("DatabaseUsername"));
-				sc.setDBPassword("DatabasePassword");
+				sc.setDBPassword(node.getChildText("DatabasePassword"));
 				
 				//Mapping files
-				sc.setCOMMUNICATION_Mapping("CommunicationMappingFile");
-				sc.setCUSTOMER_Mapping("CustomerMappingFile");
-				sc.setCUSTOMER_SALESID_Mapping("CustomerSalesIDMappingFile");
-				sc.setCUSTOMER_SHIPTO_Mapping("CustomerShipToMappingFile");
-				sc.setLATEST_ORDER_Mapping("LatestOrderMappingFile");
-				sc.setPRODUCT_Mapping("ProductMappingFile");
-				sc.setSALES_AREA_Mapping("SalesAreaMappingFile");
-				sc.setSALES_PERSON_Mapping("SalesPersonMappingFile");
-				
+				sc.setCOMMUNICATION_Mapping(node.getChildText("CommunicationMappingFile"));
+				sc.setCUSTOMER_Mapping(node.getChildText("CustomerMappingFile"));
+				sc.setCUSTOMER_SALESID_Mapping(node.getChildText("CustomerSalesIDMappingFile"));
+				sc.setCUSTOMER_SHIPTO_Mapping(node.getChildText("CustomerShipToMappingFile"));
+				sc.setLATEST_ORDER_Mapping(node.getChildText("LatestOrderMappingFile"));
+				sc.setPRODUCT_Mapping(node.getChildText("ProductMappingFile"));
+				sc.setSALES_AREA_Mapping(node.getChildText("SalesAreaMappingFile"));
+				sc.setSALES_PERSON_Mapping(node.getChildText("SalesPersonMappingFile"));
+				sc.setBIBO_XLSX_Mapping(node.getChildText("BIBOExcelMappingFile"));
+				sc.setBIBO_Mapping(node.getChildText("BIBOMappingFile"));
+				sc.setIMAGE_SCORE_Mapping(node.getChildText("ImageScoreMappingFile"));
 			}
 			//4 หมู่ 8 ถ.บรมราชชนนี แขวงฉิมพลี
 		}

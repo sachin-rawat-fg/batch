@@ -46,10 +46,8 @@ public class RESTQuery {
         String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
         Client restClient = Client.create();
         WebResource webResource = restClient.resource(url);
-        //System.out.println(url);
         ClientResponse resp = webResource.type(contentType).header("Authorization", "Basic " + authStringEnc).post(ClientResponse.class,body);
         String output = resp.getEntity(String.class);
-        System.out.println("response: "+output);
         
         Pair<Integer,String> statusReponse = new Pair<Integer,String>(resp.getStatus(), null);
  
@@ -69,17 +67,18 @@ public class RESTQuery {
         else
         {
         	error = output;
+        	System.out.println(error);
         }
         RESTResponse restRep = new RESTResponse(resp.getStatus(),lst,error);        
 		return restRep;
 		}
 		catch(Exception e){e.printStackTrace();}return null;
 	}
-	public RESTResponse updateRecord(String queryType,String body,String updateParameterKey,String updateParameterValue,String responseFields[])
+	public RESTResponse updateRecord(String queryType,String body,String updateParameterValue,String responseFields[])
 	{
+		System.out.println(updateParameterValue);
 		try{
-			DefaultHttpClient httpClient = new DefaultHttpClient();
-			
+			DefaultHttpClient httpClient = new DefaultHttpClient();			
 			Settings set = Settings.getInstance();
 			String contentType = "application/vnd.oracle.adf.resourceitem+json";
 			String username = set.getLoginID();
@@ -110,9 +109,8 @@ public class RESTQuery {
 			String error = null;
 			HttpResponse response = httpClient.execute(patch);
 			
-			
-			
-			if (response.getStatusLine().getStatusCode()>= 201 && response.getStatusLine().getStatusCode()<=210) {
+			if (String.valueOf(response.getStatusLine().getStatusCode()).startsWith("2")) 
+			{
 				if(responseFields!=null && responseFields.length>0)
 				{
 					BufferedReader br = new BufferedReader(
@@ -124,8 +122,6 @@ public class RESTQuery {
 							sb.append(partialoutput);
 					}
 					String output = sb.toString();
-					
-					
 					JSONParser parser = new JSONParser();
 	            	JSONObject json = (JSONObject) parser.parse(output);
 	            	if(responseFields!=null)
@@ -134,7 +130,6 @@ public class RESTQuery {
 	            		list.add(new Pair<String,String>(res,(String) json.get(res)));
 	            	}
 				}
-				
 			}
 			else
 			{
@@ -201,7 +196,6 @@ public class RESTQuery {
 	            	if(responseFields!=null)
 	            	for(String res:responseFields)
 	            	{
-	            		//System.out.println(res+"::"+json.get(res));
 	            		list.add(new Pair<String,String>(res,(String) json.get(res)));
 	            	}
 	        	}
@@ -220,13 +214,13 @@ public class RESTQuery {
 		
 		return null;
 	}
-	/*
+	
 	public RESTResponse recordExists(String queryType,String fieldName,String fieldValue)
 	{
 		
 		try{
 			Settings set = Settings.getInstance();
-			String contentType = "application/vnd.oracle.adf.resourceitem+json";
+			String contentType = "application/json";
 			String username = set.getLoginID();
 			String password = set.getPassword();
 			String url="";
@@ -244,27 +238,28 @@ public class RESTQuery {
 			}
 			String authString = username + ":" + password;
 	        String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
-	        
+
 	        Client restClient = Client.create();
+	        url = url+"?q="+fieldName+"="+fieldValue;
 	        WebResource webResource = restClient.resource(url);
-	        //System.out.println(url);
-	        ClientResponse resp = webResource.queryParam(fieldName, fieldValue).type(contentType).header("Authorization", "Basic " + authStringEnc).get(ClientResponse.class,body);
-	        String output = resp.getEntity(String.class);
+	        ClientResponse resp = webResource.type(contentType).header("Authorization", "Basic " + authStringEnc).get(ClientResponse.class);
 	        
+	        String output = resp.getEntity(String.class);
 	        Pair<Integer,String> statusReponse = new Pair<Integer,String>(resp.getStatus(), null);
 	 
 	        List <Pair<String,String> > lst = new ArrayList(); 
 	   
 	        String error = null;
-	        if(resp.getStatus()>=200 && resp.getStatus()<=210)
+	        //Check for status is successful or not.
+	        if(resp.getStatus()>=200 && resp.getStatus()<=290)
 	        {
 	        	JSONParser parser = new JSONParser();
 	        	JSONObject json = (JSONObject) parser.parse(output);
-	        	if(responseFields!=null)
-	        	for(String res:responseFields)
-	        	{
-	        		lst.add(new Pair<String,String>(res,(String) json.get(res)));
-	        	}
+	        	Long id = (Long) json.get("count");
+	        	
+	        	//if count is greater than 0, record already exists in OSC
+	        	if(id!=null && id>0)
+	        		lst.add(new Pair<String, String>(fieldName, String.valueOf(id)));
 	        }
 	        else
 	        {
@@ -275,5 +270,57 @@ public class RESTQuery {
 			}
 			catch(Exception e){e.printStackTrace();}return null;
 	}
-	*/
+	public Long getLongFieldValue(String queryType,String fieldName,String fieldValue,String getField)
+	{
+		
+		try{
+			Settings set = Settings.getInstance();
+			String contentType = "application/json";
+			String username = set.getLoginID();
+			String password = set.getPassword();
+			String url="";
+			switch(queryType)
+			{
+				case "Account":
+					url = set.getAccountURL();
+					break;
+				case "Business":
+					url = set.getBusinessURL();
+					break;
+				case "ShipTo":
+					url = set.getShipToURL();
+					break;
+			}
+			String authString = username + ":" + password;
+	        String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
+
+	        Client restClient = Client.create();
+	        url = url+"?q="+fieldName+"="+fieldValue;
+	        WebResource webResource = restClient.resource(url);
+	        ClientResponse resp = webResource.type(contentType).header("Authorization", "Basic " + authStringEnc).get(ClientResponse.class);
+	        
+	        String output = resp.getEntity(String.class);
+	        Pair<Integer,String> statusReponse = new Pair<Integer,String>(resp.getStatus(), null);
+	 
+	        List <Pair<String,String> > lst = new ArrayList(); 
+	   
+	        String error = null;
+	        //Check for status is successful or not.
+	        if(resp.getStatus()>=200 && resp.getStatus()<=290)
+	        {
+	        	JSONParser parser = new JSONParser();
+	        	JSONObject json = (JSONObject) parser.parse(output);
+	        	Long id = (Long) json.get(getField);
+	        	
+	        	//if count is greater than 0, record already exists in OSC
+	        	return id;
+	        }
+	        else
+	        {
+	        	return (long) -1;
+	        }
+			}
+			catch(Exception e){e.printStackTrace();}return (long) -1;
+	}
+	
 }

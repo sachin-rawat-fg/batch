@@ -1,0 +1,15 @@
+<CustomerCode>1202003</CustomerCode>
+<CustomerName>กรีนเนท - ศรีนครินทร์</CustomerName>
+<ProductHierarchy>Clean Oil</ProductHierarchy>
+<ProductCode>1134020</ProductCode>
+<ProductName>G-GASOHOL 95S</ProductName>
+<SalesOffice>RM</SalesOffice>
+<SalesGroup>Vicinity</SalesGroup>
+<SalesPerson>KSP กฤษดา</SalesPerson>
+<ลูกค้าซื้อจาก BCPปีนี้เดือนที่แล้ว>164.00</ลูกค้าซื้อจากBCPปีนี้เดือนที่แล้ว>
+<ลูกค้าซื้อจาก BCPเดือนนีปีที่แล้ว>128.00</ลูกค้าซื้อจาก BCPเดือนนีปีที่แล้ว>
+<BCPProrate></BCPProrate>
+<POSProrate>165.00</POSProrate>
+<calculateProrate>-165.00</calculateProrate>
+<POSStockvolavg>13.8593006451613</POSStockvolavg>
+<MarginBeforeAdjust>4.3152</MarginBeforeAdjust>

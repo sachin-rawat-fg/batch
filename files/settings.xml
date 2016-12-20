@@ -14,6 +14,9 @@
 <ProductMappingFile>./files/mappings/PRODUCT_Mapping.csv</ProductMappingFile>
 <SalesAreaMappingFile>./files/mappings/SALES_AREA_Mapping.csv</SalesAreaMappingFile>
 <SalesPersonMappingFile>./files/mappings/SALES_PERSON_Mapping.csv</SalesPersonMappingFile>
+<BIBOExcelMappingFile>./files/mappings/BIBO_Xlsx_Mapping.csv</BIBOExcelMappingFile>
+<BIBOMappingFile>./files/mappings/BIBO_Mapping.csv</BIBOMappingFile>
+<ImageScoreMappingFile>./files/mappings/IMAGE_SCORE_Mapping.csv</ImageScoreMappingFile>
 <MappingFile>./files/mapping.csv</MappingFile>
 <LoginId>kajal@suvitech.com</LoginId>
 <Password>Welcome@1</Password>

@@ -1,0 +1,20 @@
+﻿Column_Count,XML_Field
+1,
+2,SalesOffice
+3,SalesGroup
+4,
+5,SalesPerson
+6,ProductHierarchy
+7,ProductCode
+8,ProductName
+9,ลูกค้าซื้อจาก BCPปีนี้เดือนที่แล้ว
+10,ลูกค้าซื้อจาก BCPเดือนนีปีที่แล้ว
+11,BCPProrate
+12,POSProrate
+13,calculateProrate
+14,POSStockvolavg
+15,MarginBeforeAdjust
+16,
+17,
+18,
+19,

@@ -1,0 +1,12 @@
+SAP_Field,OSC_Field,OSC_Object
+Customer,OrganizationDEO_CustomerCode1_c,Account
+Customername,,
+Billing,,
+Billdate,,
+Material,,
+Mname,,
+ImageScore,OrganizationDEO_ImageScore_LastMonth_c,Account
+MonthOfGoodImage,OrganizationDEO_Margin_c,Account
+Status,,
+UpdateDate,,
+UpdateTime,,

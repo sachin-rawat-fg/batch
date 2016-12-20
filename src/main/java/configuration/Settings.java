@@ -30,8 +30,29 @@ public class Settings {
 	private String PRODUCT_Mapping="";
 	private String SALES_AREA_Mapping="";
 	private String SALES_PERSON_Mapping="";
-		
+	private String BIBO_XLSX_Mapping="";
+	private String BIBO_Mapping="";
+	private String IMAGE_SCORE_Mapping="";
+	//private String ABC_Mapping = "";
 	
+	public String getIMAGE_SCORE_Mapping() {
+		return IMAGE_SCORE_Mapping;
+	}
+	public void setIMAGE_SCORE_Mapping(String iMAGE_SCORE_Mapping) {
+		IMAGE_SCORE_Mapping = iMAGE_SCORE_Mapping;
+	}
+	public String getBIBO_Mapping() {
+		return BIBO_Mapping;
+	}
+	public void setBIBO_Mapping(String bIBO_Mapping) {
+		BIBO_Mapping = bIBO_Mapping;
+	}
+	public String getBIBO_XLSX_Mapping() {
+		return BIBO_XLSX_Mapping;
+	}
+	public void setBIBO_XLSX_Mapping(String bIBO_XLSX_Mapping) {
+		BIBO_XLSX_Mapping = bIBO_XLSX_Mapping;
+	}
 	public String getCOMMUNICATION_Mapping() {
 		return COMMUNICATION_Mapping;
 	}
